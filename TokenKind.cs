@@ -8,6 +8,5 @@ public enum TokenKind
     Sub,
     Div,
     Exponent,
-    LParen,
-    RParen,
+
 }

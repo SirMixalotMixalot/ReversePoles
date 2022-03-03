@@ -41,6 +41,39 @@ public class ExpressionTree {
         }
         token = t;
     }
+    public int Eval() {
+        var lhs = 0;
+        if(left != null) {
+            if(left.token.kind == TokenKind.Number) {
+                lhs = int.Parse(left.token.ToString());
+            }else {
+                lhs = left.Eval();
+            }
+        }
+        var rhs = 0;
+        if(right != null) {
+            if(right.token.kind == TokenKind.Number) {
+                rhs = int.Parse(right.token.ToString());
+            }else {
+                rhs = right.Eval();
+            }
+        }
+        
+        switch (token.kind)
+        {
+            case TokenKind.Mul:
+                return lhs * rhs; 
+            case TokenKind.Add:
+                return lhs + rhs;
+            case TokenKind.Div:
+                return lhs/rhs;
+            case TokenKind.Sub:
+                return lhs - rhs;
+            default:
+                return 0;
+            
+        }
+    }
 
     public List<Token> PostOrderTraversal() {
         var list = new List<Token>(length);

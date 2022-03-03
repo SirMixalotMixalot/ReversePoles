@@ -34,10 +34,7 @@ public class Token : IComparable<Token>
     {
         return precedence - other.precedence;
     }
-    public override string ToString()
-    {
-        return $"['{token}' - {precedence} -- {kind}]";
-    }
+    public override string ToString() => token;
 }
 public static class Utilities {
     public static Dictionary<char, Token> Tokens = new()
