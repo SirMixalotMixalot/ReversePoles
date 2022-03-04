@@ -11,15 +11,14 @@ namespace ReversePoles
             var tokens = new List<Token>();
             var i = 0;
             foreach(char c in expression.Trim()) {
-                if (c == ' ') {
+                var isParen = c == '(' || c == ')';
+                if(c == ' ' || isParen ) {
+                    if (isParen) 
+                        parenLevel += c == '(' ? 1: -1;
                     i += 1;
                     continue;
                 }
-                if (c == '(' || c == ')') {
-                    parenLevel += c == '(' ? 1: -1;
-                    i += 1;
-                    continue;
-                }
+
                 var space = i;
                 while(space < expression.Length && Char.IsNumber(expression[space])) {
                     space += 1;
