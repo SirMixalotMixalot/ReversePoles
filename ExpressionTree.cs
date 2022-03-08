@@ -41,19 +41,19 @@ public class ExpressionTree {
         }
         token = t;
     }
-    public int Eval() {
-        var lhs = 0;
+    public float Eval() {
+        var lhs = 0.0f;
         if(left != null) {
             if(left.token.kind == TokenKind.Number) {
-                lhs = int.Parse(left.token.ToString());
+                lhs = float.Parse(left.token.ToString());
             }else {
                 lhs = left.Eval();
             }
         }
-        var rhs = 0;
+        var rhs = 0.0f;
         if(right != null) {
             if(right.token.kind == TokenKind.Number) {
-                rhs = int.Parse(right.token.ToString());
+                rhs = float.Parse(right.token.ToString());
             }else {
                 rhs = right.Eval();
             }

@@ -42,7 +42,7 @@ namespace ReversePoles
 
         public static void Main()
         {
-            const string expression = "(5 + 4)/(2 - 1)";
+            const string expression = "(2/1)*4/(5-3)";
             var tokens = TokenizeParens(expression).ToArray();
             var tree = new ExpressionTree(tokens);
 
